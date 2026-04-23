@@ -1,0 +1,102 @@
+```css
+/* ========================= */
+/* RESET MODERNO + MOBILE FRIENDLY */
+/* ========================= */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove margens */
+* {
+  margin: 0;
+}
+
+/* Altura base */
+html, body {
+  height: 100%;
+}
+
+/* Tipografia base */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Mídia responsiva */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Formulários */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Evita overflow de texto */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Listas */
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+/* Tabelas */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Scroll suave */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Reduz animações para acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Ajuste de viewport mobile */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Evita overflow horizontal */
+body {
+  overflow-x: hidden;
+}
+```
