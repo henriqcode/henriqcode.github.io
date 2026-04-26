@@ -46,6 +46,33 @@ const initMenuToggle = () => {
   });
 };
 
+const initScrollAnimations = () => {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-on-scroll');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.gallery-card, .project-card, h3').forEach((element, index) => {
+    element.classList.add('animate-on-scroll');
+    if (index % 2 === 0) {
+      element.classList.add('slide-left');
+    } else {
+      element.classList.add('slide-right');
+    }
+    element.style.opacity = '0';
+    observer.observe(element);
+  });
+};
+
 // Carrossel de ilustrações
 const initCarousel = () => {
   const carousel = document.querySelector(CAROUSEL_SELECTOR);
@@ -105,5 +132,6 @@ const initCarousel = () => {
 document.addEventListener('DOMContentLoaded', () => {
   initAnchorNavigation();
   initMenuToggle();
+  initScrollAnimations();
   initCarousel();
 });
