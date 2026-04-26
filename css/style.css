@@ -1,23 +1,38 @@
-```css
 /* ========================= */
-/* BASE */
+/* RESET LEVE + BASE */
 /* ========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-primary);
   background: var(--color-bg);
   color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Container central */
+/* ========================= */
+/* CONTAINER */
+/* ========================= */
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
   width: 100%;
+  padding: 0 var(--spacing-md);
 }
 
 /* Sections */
 section {
-  padding: var(--spacing-xl) var(--spacing-md);
+  padding: var(--spacing-xl) 0;
 }
 
 /* ========================= */
@@ -29,37 +44,52 @@ header {
   top: 0;
   z-index: 1000;
 
-  background: rgba(15, 23, 42, 0.7);
-  backdrop-filter: blur(12px);
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--color-border);
+
+  transition: var(--transition-normal);
+}
+
+/* Efeito ao rolar */
+header.scrolled {
+  background: rgba(15, 23, 42, 0.9);
+  box-shadow: var(--shadow-sm);
 }
 
 nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--spacing-md) var(--spacing-md);
+  padding: var(--spacing-md);
 }
 
 .logo {
   font-size: var(--font-size-lg);
-  font-weight: bold;
+  font-weight: 700;
   color: var(--color-primary);
+  letter-spacing: 0.5px;
 }
 
-/* Menu */
+/* MENU */
 nav ul {
   display: flex;
   gap: var(--spacing-lg);
+  list-style: none;
 }
 
 nav a {
   font-size: var(--font-size-sm);
   position: relative;
   transition: var(--transition-fast);
+  opacity: 0.8;
 }
 
-/* Hover elegante */
+nav a:hover {
+  opacity: 1;
+}
+
+/* Linha animada */
 nav a::after {
   content: "";
   position: absolute;
@@ -90,8 +120,9 @@ nav a:hover::after {
 }
 
 .hero h2 {
-  font-size: var(--font-size-xxl);
+  font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: var(--spacing-md);
+  line-height: 1.2;
 }
 
 .hero span {
@@ -101,24 +132,44 @@ nav a:hover::after {
 .hero p {
   color: var(--color-text-secondary);
   margin-bottom: var(--spacing-lg);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
-/* BOTÃO */
+/* ========================= */
+/* BOTÃO PREMIUM */
+/* ========================= */
 .btn {
   display: inline-block;
-  padding: 12px 28px;
+  padding: 14px 32px;
   border-radius: var(--radius-md);
   background: var(--color-primary);
   color: #000;
-  font-weight: bold;
-  transition: var(--transition-normal);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+
+  transition: all 0.25s ease;
   box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+/* brilho sutil */
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.btn:hover::after {
+  opacity: 1;
 }
 
 .btn:hover {
   background: var(--color-primary-hover);
-  transform: translateY(-3px);
+  transform: translateY(-4px) scale(1.02);
   box-shadow: var(--shadow-md);
 }
 
@@ -136,7 +187,7 @@ nav a:hover::after {
 
 #about p {
   color: var(--color-text-secondary);
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
 /* ========================= */
@@ -151,7 +202,6 @@ nav a:hover::after {
   margin-bottom: var(--spacing-lg);
 }
 
-/* GRID */
 .projects-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -164,25 +214,27 @@ nav a:hover::after {
   padding: var(--spacing-md);
   border-radius: var(--radius-md);
   border: 1px solid transparent;
-  transition: var(--transition-normal);
+
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
 }
 
-/* Efeito hover premium */
+/* hover mais refinado */
 .project-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-10px) scale(1.01);
   border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
 }
 
-/* Glow sutil */
+/* glow mais bonito */
 .project-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top, rgba(56,189,248,0.15), transparent 60%);
+  background: radial-gradient(circle at 50% 0%, rgba(56,189,248,0.18), transparent 65%);
   opacity: 0;
-  transition: var(--transition-normal);
+  transition: 0.4s;
 }
 
 .project-card:hover::before {
@@ -200,7 +252,7 @@ nav a:hover::after {
 
 .project-card a {
   color: var(--color-primary);
-  font-weight: bold;
+  font-weight: 600;
 }
 
 /* ========================= */
@@ -208,11 +260,6 @@ nav a:hover::after {
 /* ========================= */
 #contact {
   text-align: center;
-}
-
-#contact h2 {
-  font-size: var(--font-size-xl);
-  margin-bottom: var(--spacing-sm);
 }
 
 #contact p {
@@ -248,12 +295,12 @@ footer {
     display: none;
   }
 
-  section {
-    padding: var(--spacing-lg) var(--spacing-sm);
+  .hero {
+    text-align: center;
   }
 
-  .hero h2 {
-    font-size: 2rem;
+  section {
+    padding: var(--spacing-lg) 0;
   }
 
   .projects-container {
@@ -272,4 +319,3 @@ footer {
     text-align: center;
   }
 }
-```
