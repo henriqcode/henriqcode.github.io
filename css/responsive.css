@@ -1,4 +1,12 @@
 @media (max-width: 768px) {
+  html {
+    scroll-padding-top: 8rem;
+  }
+
+  .section {
+    scroll-margin-top: 8rem;
+  }
+
   .hero {
     grid-template-columns: 1fr;
     text-align: center;

@@ -5,6 +5,10 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 }
+html {
+  scroll-padding-top: 6rem;
+}
+
 body {
 font-family: Arial, sans-serif;
 background: var(--primary);
@@ -21,6 +25,7 @@ margin: 0 auto;
 }
 .section {
 padding: 6rem 0;
+scroll-margin-top: 6rem;
 }
 .header {
 position: fixed;
