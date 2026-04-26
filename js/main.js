@@ -11,17 +11,38 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Carrossel de ilustrações
 const carousel = document.getElementById('carousel');
 if (carousel) {
-  document.querySelector('.carousel-btn.next').addEventListener('click', () => {
-    carousel.scrollBy({
-      left: carousel.offsetWidth,
+  const carouselItems = carousel.querySelectorAll('img');
+  let currentIndex = 0;
+  let autoRotateInterval = null;
+
+  const scrollToIndex = index => {
+    const target = carouselItems[index];
+    if (!target) return;
+    carousel.scrollTo({
+      left: target.offsetLeft,
       behavior: 'smooth'
     });
+  };
+
+  const updateIndex = newIndex => {
+    currentIndex = (newIndex + carouselItems.length) % carouselItems.length;
+    scrollToIndex(currentIndex);
+  };
+
+  const resetAutoRotate = () => {
+    if (autoRotateInterval) clearInterval(autoRotateInterval);
+    autoRotateInterval = setInterval(() => updateIndex(currentIndex + 1), 5000);
+  };
+
+  document.querySelector('.carousel-btn.next').addEventListener('click', () => {
+    updateIndex(currentIndex + 1);
+    resetAutoRotate();
   });
 
   document.querySelector('.carousel-btn.prev').addEventListener('click', () => {
-    carousel.scrollBy({
-      left: -carousel.offsetWidth,
-      behavior: 'smooth'
-    });
+    updateIndex(currentIndex - 1);
+    resetAutoRotate();
   });
+
+  resetAutoRotate();
 }
