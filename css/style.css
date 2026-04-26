@@ -1,4 +1,6 @@
-body {
+:root {
+
+.gallery-grid,
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -13,13 +15,13 @@ body {
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(44, 57, 48, 0.85);
+  background: rgba(44,57,48,0.8);
   opacity: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: var(--transition);
+  transition: 0.4s;
 }
 
 .gallery-card:hover .overlay {
@@ -30,34 +32,37 @@ body {
   display: flex;
   gap: 2rem;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
 }
 
 .carousel img {
   min-width: 80%;
-  border-radius: var(--radius);
-  scroll-snap-align: center;
 }
 
-.btn-primary,
-.btn-secondary {
-  display: inline-block;
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+
+button, .contact-links a {
   padding: 1rem 2rem;
+  border: none;
+  border-radius: 16px;
   background: var(--accent);
-  color: var(--primary-bg);
-  border-radius: var(--radius);
-  transition: var(--transition);
+  color: var(--bg-primary);
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .footer {
-  background: var(--secondary-bg);
+  background: var(--bg-secondary);
   text-align: center;
 }
 
-.social-links {
+.contact-links {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 1rem;
-}
+  flex-wrap: wrap;
+  margin-top: 2rem;
 }
