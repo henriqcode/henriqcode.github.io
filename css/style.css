@@ -95,13 +95,71 @@ transition: .4s;
 .gallery-card:hover .overlay {
 opacity: 1;
 }
+.carousel-wrapper {
+position: relative;
+display: flex;
+align-items: center;
+gap: 1rem;
+}
+
 .carousel {
 display: flex;
 gap: 2rem;
-overflow-x: auto;
+overflow: hidden;
+scroll-behavior: smooth;
+scroll-snap-type: x mandatory;
+flex: 1;
+width: 100%;
 }
+
 .carousel img {
-min-width: 80%;
+min-width: 100%;
+height: auto;
+scroll-snap-align: start;
+scroll-snap-stop: always;
+border-radius: 24px;
+transition: transform 0.4s ease;
+}
+
+.carousel img:hover {
+transform: scale(1.02);
+}
+
+.carousel-btn {
+position: absolute;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+border: 2px solid var(--accent);
+background: rgba(44, 57, 48, 0.85);
+color: var(--accent);
+font-size: 1.5rem;
+font-weight: bold;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.3s ease;
+z-index: 10;
+}
+
+.carousel-btn:hover {
+background: var(--accent);
+color: var(--primary);
+transform: scale(1.1);
+box-shadow: 0 8px 20px rgba(162, 123, 92, 0.3);
+}
+
+.carousel-btn:active {
+transform: scale(0.95);
+}
+
+.carousel-btn.prev {
+left: 10px;
+}
+
+.carousel-btn.next {
+right: 10px;
 }
 .projects-header {
 display: flex;
