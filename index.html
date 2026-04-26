@@ -1,95 +1,93 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Portfólio profissional de Pedro 
-Henrique">
-<title>Portfólio</title>
-<link rel="stylesheet" href="./css/style.css">
-<link rel="stylesheet" href="./css/responsive.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio profissional de Pedro Henrique">
+  <title>Portfólio</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/responsive.css">
 </head>
 <body>
-<header class="header">
-<nav class="navbar container">
-<h1 class="logo">PORTFÓLIO</h1>
-<ul class="nav-links">
-<li><a href="#sobre">Sobre</a></li>
-<li><a href="#ilustracoes">Ilustrações</a></li>
-<li><a href="#projetos">Projetos</a></li>
-<li><a href="#contato">Contato</a></li>
-</ul>
-</nav>
-</header>
+  <header class="header">
+    <nav class="navbar container">
+      <h1 class="logo">PORTFÓLIO</h1>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#ilustracoes">Ilustrações</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
 <main>
-<section id="sobre" class="hero container section">
-<div class="hero-content">
-<p class="subtitle">Design • Desenvolvimento • Identidade</p>
-<h2>Sua imagem digital,<br><span>única e marcante.</span></h2>
-<p>
-      Espaço para apresentar minha trajetória, personalidade e visão criativa.
-</p>
-</div>
-<div class="hero-image">
-<img src="assets/profile.png" alt="Foto pessoal">
-</div>
-</section>
-<section class="gallery container section">
-<h3>Destaques Visuais</h3>
-<div class="gallery-grid">
-<div class="gallery-card">
-<img src="assets/criative.png" alt="Criatividade 
-Visual">
-<div class="overlay">
-<h4>Criatividade Visual</h4>
-<p>Projetos que unem design e funcionalidade.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="ilustracoes" class="illustrations section">
-<div class="container">
-<h3>Ilustrações</h3>
-<div class="carousel-wrapper">
-<button class="carousel-btn prev" aria-label="Anterior">←</button>
-<div id="carousel" class="carousel">
-<img src="assets/Ilustração1.png" alt="Ilustração 1">
-<img src="assets/ilustração2.png" alt="Ilustração 2">
-<img src="https://via.placeholder.com/800x500" alt="Ilustração 3">
-</div>
-<button class="carousel-btn next" aria-label="Próximo">→</button>
-</div>
-</div>
-</section>
-<section id="projetos" class="projects container section">
-<div class="projects-header">
-<h3>Projetos</h3>
-</div>
-<div class="projects-grid">
-<div class="project-card">
-<img src="https://via.placeholder.com/600x400" alt="Projeto">
-<div class="project-info">
-<span>Web Design</span>
-<h4>Projeto Exemplo</h4>
-<p>Landing page moderna com foco em performance.</p>
-<button>Ver Projeto →</button>
-</div>
-</div>
+    <section id="sobre" class="hero container section">
+      <div class="hero-content">
+        <p class="subtitle">Design • Desenvolvimento • Identidade</p>
+        <h2>Sua imagem digital,<br><span>única e marcante.</span></h2>
+        <p>Espaço para apresentar minha trajetória, personalidade e visão criativa.</p>
+      </div>
+      <div class="hero-image">
+        <img src="assets/profile.png" alt="Foto pessoal">
+      </div>
+    </section>
 
-</div>
-</section>
-</main>
-<footer id="contato" class="footer section">
-<div class="container">
-<h3>Central de Contato</h3>
-<div class="contact-links">
-<a href="#">LinkedIn</a>
-<a href="#">GitHub</a>
-<a href="#">Behance</a>
-<a href="mailto:email@email.com">E-mail</a>
-</div>
-</div>
-</footer>
-<script src="./js/main.js"></script>
+    <section class="gallery container section">
+      <h3>Destaques Visuais</h3>
+      <div class="gallery-grid">
+        <article class="gallery-card">
+          <img src="assets/criative.png" alt="Criatividade Visual">
+          <div class="overlay">
+            <h4>Criatividade Visual</h4>
+            <p>Projetos que unem design e funcionalidade.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="ilustracoes" class="illustrations section">
+      <div class="container">
+        <h3>Ilustrações</h3>
+        <div class="carousel-wrapper" role="region" aria-label="Carrossel de ilustrações">
+          <button class="carousel-btn prev" aria-label="Anterior">←</button>
+          <div id="carousel" class="carousel" aria-roledescription="carousel">
+            <img src="assets/Ilustração1.png" alt="Ilustração 1">
+            <img src="assets/ilustração2.png" alt="Ilustração 2">
+            <img src="https://via.placeholder.com/800x500" alt="Ilustração 3">
+          </div>
+          <button class="carousel-btn next" aria-label="Próximo">→</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos" class="projects container section">
+      <div class="projects-header">
+        <h3>Projetos</h3>
+      </div>
+      <div class="projects-grid">
+        <article class="project-card">
+          <img src="https://via.placeholder.com/600x400" alt="Projeto">
+          <div class="project-info">
+            <span>Web Design</span>
+            <h4>Projeto Exemplo</h4>
+            <p>Landing page moderna com foco em performance.</p>
+            <button type="button">Ver Projeto →</button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer id="contato" class="footer section">
+    <div class="container">
+      <h3>Central de Contato</h3>
+      <div class="contact-links">
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+        <a href="#">Behance</a>
+        <a href="mailto:email@email.com">E-mail</a>
+      </div>
+    </div>
+  </footer>
+  <script src="./js/main.js"></script>
 </body>
 </html>

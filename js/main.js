@@ -1,23 +1,50 @@
+const ANCHOR_LINK_SELECTOR = 'a[href^="#"]';
+const CAROUSEL_SELECTOR = '#carousel';
+const CAROUSEL_NEXT_BUTTON = '.carousel-btn.next';
+const CAROUSEL_PREV_BUTTON = '.carousel-btn.prev';
+const CAROUSEL_INTERVAL_MS = 5000;
+
 // Navegação suave para âncoras
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
+const smoothScrollTo = selector => {
+  const target = document.querySelector(selector);
+  if (!target) return;
+
+  target.scrollIntoView({
+    behavior: 'smooth'
+  });
+};
+
+const initAnchorNavigation = () => {
+  document.querySelectorAll(ANCHOR_LINK_SELECTOR).forEach(anchor => {
+    anchor.addEventListener('click', event => {
+      event.preventDefault();
+      smoothScrollTo(anchor.getAttribute('href'));
     });
   });
-});
+};
 
 // Carrossel de ilustrações
-const carousel = document.getElementById('carousel');
-if (carousel) {
-  const carouselItems = carousel.querySelectorAll('img');
+const initCarousel = () => {
+  const carousel = document.querySelector(CAROUSEL_SELECTOR);
+  const nextButton = document.querySelector(CAROUSEL_NEXT_BUTTON);
+  const prevButton = document.querySelector(CAROUSEL_PREV_BUTTON);
+
+  if (!carousel || !nextButton || !prevButton) {
+    return;
+  }
+
+  const carouselItems = Array.from(carousel.querySelectorAll('img'));
+  if (carouselItems.length === 0) {
+    return;
+  }
+
   let currentIndex = 0;
   let autoRotateInterval = null;
 
   const scrollToIndex = index => {
     const target = carouselItems[index];
     if (!target) return;
+
     carousel.scrollTo({
       left: target.offsetLeft,
       behavior: 'smooth'
@@ -30,19 +57,29 @@ if (carousel) {
   };
 
   const resetAutoRotate = () => {
-    if (autoRotateInterval) clearInterval(autoRotateInterval);
-    autoRotateInterval = setInterval(() => updateIndex(currentIndex + 1), 5000);
+    if (autoRotateInterval) {
+      clearInterval(autoRotateInterval);
+    }
+
+    autoRotateInterval = setInterval(() => {
+      updateIndex(currentIndex + 1);
+    }, CAROUSEL_INTERVAL_MS);
   };
 
-  document.querySelector('.carousel-btn.next').addEventListener('click', () => {
+  nextButton.addEventListener('click', () => {
     updateIndex(currentIndex + 1);
     resetAutoRotate();
   });
 
-  document.querySelector('.carousel-btn.prev').addEventListener('click', () => {
+  prevButton.addEventListener('click', () => {
     updateIndex(currentIndex - 1);
     resetAutoRotate();
   });
 
   resetAutoRotate();
-}
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  initAnchorNavigation();
+  initCarousel();
+});
