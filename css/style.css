@@ -1,321 +1,62 @@
-/* ========================= */
-/* RESET LEVE + BASE */
-/* ========================= */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
 body {
-  font-family: var(--font-primary);
-  background: var(--color-bg);
-  color: var(--color-text);
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ========================= */
-/* CONTAINER */
-/* ========================= */
-.container {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  width: 100%;
-  padding: 0 var(--spacing-md);
-}
-
-/* Sections */
-section {
-  padding: var(--spacing-xl) 0;
-}
-
-/* ========================= */
-/* HEADER */
-/* ========================= */
-header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--color-border);
-
-  transition: var(--transition-normal);
-}
-
-/* Efeito ao rolar */
-header.scrolled {
-  background: rgba(15, 23, 42, 0.9);
-  box-shadow: var(--shadow-sm);
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--spacing-md);
-}
-
-.logo {
-  font-size: var(--font-size-lg);
-  font-weight: 700;
-  color: var(--color-primary);
-  letter-spacing: 0.5px;
-}
-
-/* MENU */
-nav ul {
-  display: flex;
-  gap: var(--spacing-lg);
-  list-style: none;
-}
-
-nav a {
-  font-size: var(--font-size-sm);
-  position: relative;
-  transition: var(--transition-fast);
-  opacity: 0.8;
-}
-
-nav a:hover {
-  opacity: 1;
-}
-
-/* Linha animada */
-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0%;
-  height: 2px;
-  background: var(--color-primary);
-  transition: var(--transition-normal);
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
-/* ========================= */
-/* HERO */
-/* ========================= */
-#home {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding-top: 120px;
-}
-
-.hero {
-  max-width: 650px;
-}
-
-.hero h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  margin-bottom: var(--spacing-md);
-  line-height: 1.2;
-}
-
-.hero span {
-  color: var(--color-primary);
-}
-
-.hero p {
-  color: var(--color-text-secondary);
-  margin-bottom: var(--spacing-lg);
-  line-height: 1.7;
-}
-
-/* ========================= */
-/* BOTÃO PREMIUM */
-/* ========================= */
-.btn {
-  display: inline-block;
-  padding: 14px 32px;
-  border-radius: var(--radius-md);
-  background: var(--color-primary);
-  color: #000;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-
-  transition: all 0.25s ease;
-  box-shadow: var(--shadow-sm);
-  position: relative;
-  overflow: hidden;
-}
-
-/* brilho sutil */
-.btn::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
-  opacity: 0;
-  transition: 0.4s;
-}
-
-.btn:hover::after {
-  opacity: 1;
-}
-
-.btn:hover {
-  background: var(--color-primary-hover);
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: var(--shadow-md);
-}
-
-/* ========================= */
-/* SOBRE */
-/* ========================= */
-#about .container {
-  max-width: 800px;
-}
-
-#about h2 {
-  font-size: var(--font-size-xl);
-  margin-bottom: var(--spacing-sm);
-}
-
-#about p {
-  color: var(--color-text-secondary);
-  line-height: 1.8;
-}
-
-/* ========================= */
-/* PROJETOS */
-/* ========================= */
-#projects {
-  text-align: center;
-}
-
-#projects h2 {
-  font-size: var(--font-size-xl);
-  margin-bottom: var(--spacing-lg);
-}
-
-.projects-container {
+.projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--spacing-md);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
-/* CARD */
-.project-card {
-  background: var(--color-card);
-  padding: var(--spacing-md);
-  border-radius: var(--radius-md);
-  border: 1px solid transparent;
-
-  transition: all 0.3s ease;
+.gallery-card {
   position: relative;
   overflow: hidden;
 }
 
-/* hover mais refinado */
-.project-card:hover {
-  transform: translateY(-10px) scale(1.01);
-  border-color: var(--color-primary);
-  box-shadow: var(--shadow-md);
-}
-
-/* glow mais bonito */
-.project-card::before {
-  content: "";
+.overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 0%, rgba(56,189,248,0.18), transparent 65%);
+  background: rgba(44, 57, 48, 0.85);
   opacity: 0;
-  transition: 0.4s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: var(--transition);
 }
 
-.project-card:hover::before {
+.gallery-card:hover .overlay {
   opacity: 1;
 }
 
-.project-card h3 {
-  margin-bottom: var(--spacing-sm);
+.carousel {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
 }
 
-.project-card p {
-  color: var(--color-text-secondary);
-  margin-bottom: var(--spacing-sm);
+.carousel img {
+  min-width: 80%;
+  border-radius: var(--radius);
+  scroll-snap-align: center;
 }
 
-.project-card a {
-  color: var(--color-primary);
-  font-weight: 600;
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--accent);
+  color: var(--primary-bg);
+  border-radius: var(--radius);
+  transition: var(--transition);
 }
 
-/* ========================= */
-/* CONTATO */
-/* ========================= */
-#contact {
+.footer {
+  background: var(--secondary-bg);
   text-align: center;
 }
 
-#contact p {
-  color: var(--color-text-secondary);
-  margin-bottom: var(--spacing-md);
-}
-
-/* ========================= */
-/* FOOTER */
-/* ========================= */
-footer {
-  background: var(--color-bg-secondary);
-  padding: var(--spacing-md);
-  text-align: center;
-  color: var(--color-text-secondary);
-  border-top: 1px solid var(--color-border);
-}
-
-/* ========================= */
-/* RESPONSIVO */
-/* ========================= */
-
-/* Tablet */
-@media (max-width: 1024px) {
-  .hero h2 {
-    font-size: 2.4rem;
-  }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  nav ul {
-    display: none;
-  }
-
-  .hero {
-    text-align: center;
-  }
-
-  section {
-    padding: var(--spacing-lg) 0;
-  }
-
-  .projects-container {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Pequenas telas */
-@media (max-width: 480px) {
-  .hero h2 {
-    font-size: 1.6rem;
-  }
-
-  .btn {
-    width: 100%;
-    text-align: center;
-  }
+.social-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }

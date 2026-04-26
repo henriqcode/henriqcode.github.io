@@ -1,84 +1,64 @@
-```html
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pedro Henrique | Desenvolvedor Front-End</title>
-
-  <!-- SEO básico -->
-  <meta name="description" content="Portfólio de Pedro Henrique, desenvolvedor front-end em formação." />
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-
-<body>
-
-  <!-- HEADER / NAV -->
-  <header>
-    <nav>
-      <h1>Pedro</h1>
-      <ul>
-        <li><a href="#home">Início</a></li>
-        <li><a href="#about">Sobre</a></li>
-        <li><a href="#projects">Projetos</a></li>
-        <li><a href="#contact">Contato</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- HERO -->
-  <section id="home">
-    <div class="hero">
-      <h2>Olá, eu sou Pedro 👋</h2>
-      <p>Desenvolvedor front-end em evolução, focado em criar interfaces modernas e funcionais.</p>
-      <a href="#projects" class="btn">Ver projetos</a>
+      <img src="assets/images/profile.jpg" alt="Foto de perfil">
     </div>
   </section>
 
-  <!-- SOBRE -->
-  <section id="about">
-    <h2>Sobre mim</h2>
-    <p>
-      Sou estudante de Análise e Desenvolvimento de Sistemas, em transição para a área de tecnologia.
-      Tenho foco em desenvolvimento web utilizando HTML, CSS e JavaScript.
-    </p>
+  <section class="gallery section container">
+    <h3>Destaques Visuais</h3>
+    <div class="gallery-grid">
+      <div class="gallery-card">
+        <img src="assets/images/gallery1.jpg" alt="Projeto visual">
+        <div class="overlay">
+          <h4>Criatividade Visual</h4>
+          <p>Projetos que unem design e funcionalidade.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- PROJETOS -->
-  <section id="projects">
-    <h2>Projetos</h2>
+  <section id="ilustracoes" class="illustrations section">
+    <div class="container">
+      <h3>Ilustrações</h3>
+      <div class="carousel">
+        <img src="assets/images/illustration1.jpg" alt="Ilustração 1">
+        <img src="assets/images/illustration2.jpg" alt="Ilustração 2">
+        <img src="assets/images/illustration3.jpg" alt="Ilustração 3">
+      </div>
+    </div>
+  </section>
 
-    <div class="project-card">
-      <h3>Projeto 1</h3>
-      <p>Descrição breve do projeto.</p>
-      <a href="#">Ver projeto</a>
+  <section id="projetos" class="projects section container">
+    <div class="section-header">
+      <h3>Projetos</h3>
+      <button class="btn-secondary">+ Adicionar Projeto</button>
     </div>
 
-    <div class="project-card">
-      <h3>Projeto 2</h3>
-      <p>Descrição breve do projeto.</p>
-      <a href="#">Ver projeto</a>
+    <div class="projects-grid">
+      <article class="project-card">
+        <img src="assets/images/project1.jpg" alt="Projeto 1">
+        <div class="project-info">
+          <span>Web Design</span>
+          <h4>Projeto Exemplo</h4>
+          <p>Landing page moderna com foco em performance.</p>
+          <button>Ver Projeto →</button>
+        </div>
+      </article>
     </div>
-
   </section>
+</main>
 
-  <!-- CONTATO -->
-  <section id="contact">
-    <h2>Contato</h2>
-    <p>Vamos conversar?</p>
-    <a href="mailto:seuemail@email.com">Enviar email</a>
-  </section>
+<footer id="contato" class="footer section">
+  <div class="container">
+    <h3>Central de Contato</h3>
+    <div class="social-links">
+      <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="#" target="_blank" rel="noopener noreferrer">Behance</a>
+      <a href="mailto:email@email.com">E-mail</a>
+    </div>
+  </div>
+</footer>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Pedro Henrique. Todos os direitos reservados.</p>
-  </footer>
-
-  <!-- JS -->
-  <script src="js/script.js"></script>
-
+<script src="js/main.js"></script>
 </body>
 </html>
-```

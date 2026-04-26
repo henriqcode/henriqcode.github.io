@@ -1,53 +1,11 @@
-```css id="yq4f1p"
-/* ========================= */
-/* DESIGN TOKENS / VARIABLES */
-/* ========================= */
-
 :root {
+  --primary-bg: #2C3930;
+  --secondary-bg: #3F4F44;
+  --accent: #A27B5C;
+  --text-light: #DCD7C9;
 
-  /* ===== CORES ===== */
-  --color-bg: #0f172a;
-  --color-bg-secondary: #020617;
-  --color-primary: #38bdf8;
-  --color-primary-hover: #0ea5e9;
-
-  --color-text: #e2e8f0;
-  --color-text-secondary: #94a3b8;
-
-  --color-card: #1e293b;
-  --color-border: #334155;
-
-  /* ===== TIPOGRAFIA ===== */
-  --font-primary: 'Segoe UI', Arial, sans-serif;
-
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.9rem;
-  --font-size-md: 1rem;
-  --font-size-lg: 1.5rem;
-  --font-size-xl: 2rem;
-  --font-size-xxl: 3rem;
-
-  /* ===== ESPAÇAMENTOS ===== */
-  --spacing-xs: 5px;
-  --spacing-sm: 10px;
-  --spacing-md: 20px;
-  --spacing-lg: 40px;
-  --spacing-xl: 80px;
-
-  /* ===== BORDAS ===== */
-  --radius-sm: 5px;
-  --radius-md: 10px;
-  --radius-lg: 15px;
-
-  /* ===== SOMBRAS ===== */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 5px 20px rgba(0, 0, 0, 0.3);
-
-  /* ===== TRANSIÇÕES ===== */
-  --transition-fast: 0.2s ease-in-out;
-  --transition-normal: 0.3s ease-in-out;
-
-  /* ===== LAYOUT ===== */
+  --font-main: 'Arial', sans-serif;
+  --transition: all 0.3s ease;
+  --radius: 24px;
   --container-width: 1200px;
 }
-```
