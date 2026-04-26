@@ -18,21 +18,56 @@
   }
 
   .navbar {
+    position: relative;
     flex-direction: column;
     align-items: stretch;
     gap: 1rem;
   }
 
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+  }
+
   .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 1rem;
+    display: none;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    width: 100%;
+    background: rgba(44, 57, 48, 0.96);
+    padding: 1rem;
+    border-radius: 32px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    min-width: 180px;
+    z-index: 1001;
+  }
+
+  .nav-links.open {
+    display: flex;
   }
 
   .nav-links li {
     width: 100%;
-    text-align: center;
+  }
+
+  .nav-links a {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1rem;
+    border-radius: 999px;
+    background: rgba(162, 123, 92, 0.15);
+    transition: background 0.25s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus {
+    background: rgba(162, 123, 92, 0.3);
   }
 
   .projects-header {

@@ -23,6 +23,29 @@ const initAnchorNavigation = () => {
   });
 };
 
+const initMenuToggle = () => {
+  const toggleButton = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (!toggleButton || !navLinks) {
+    return;
+  }
+
+  toggleButton.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    toggleButton.classList.toggle('open', isOpen);
+    toggleButton.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      toggleButton.classList.remove('open');
+      toggleButton.setAttribute('aria-expanded', 'false');
+    });
+  });
+};
+
 // Carrossel de ilustrações
 const initCarousel = () => {
   const carousel = document.querySelector(CAROUSEL_SELECTOR);
@@ -81,5 +104,6 @@ const initCarousel = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   initAnchorNavigation();
+  initMenuToggle();
   initCarousel();
 });
